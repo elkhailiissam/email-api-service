@@ -26,3 +26,11 @@ jobs:
     - run: npm ci
     - run: npm run lint
     - run: npm test
+      env:
+        EMAIL_HOST: smtp.example.com
+        EMAIL_PORT: 587
+        EMAIL_USER: test@example.com
+        EMAIL_PASSWORD: testpassword
+        EMAIL_SECURE: false
+        ADMIN_EMAIL: admin@example.com
+        COMPANY_NAME: Test Company

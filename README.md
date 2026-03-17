@@ -11,7 +11,20 @@ I needed a way to handle transactional emails (contact forms, notifications, aut
 - **Send emails** via SMTP with plain text and HTML support
 - **Contact form processing** with admin notification + user auto-response
 - **Fetch incoming emails** via IMAP with reply threading support
-- **API key authentication** on all email endpoints
+### API Key Authentication
+
+This service enforces authentication on all email endpoints.
+
+1.  **Set your API Key**: Add `API_KEY=your-secret-key` to your `.env` file.
+2.  **Automatic Generation**: If you don't set an `API_KEY`, the server will generate a **temporary secure key** on startup and print it to the console.
+
+**Usage:**
+
+Include the key in the `Authorization` header of your requests:
+
+```bash
+Authorization: Bearer <YOUR_API_KEY>
+```
 - **Rate limiting** (60 requests/min per IP by default)
 - **Health check** endpoint for monitoring
 - **One-click deploy** to Heroku, Railway, or Docker
@@ -74,6 +87,21 @@ The service runs on `http://localhost:3001` by default.
 ## API Reference
 
 All `/api/email/*` endpoints require the `Authorization: Bearer <API_KEY>` header (if `API_KEY` is set in your environment).
+
+### API Key Authentication
+
+This service enforces authentication on all email endpoints.
+
+1.  **Set your API Key**: Add `API_KEY=your-secret-key` to your `.env` file.
+2.  **Automatic Generation**: If you don't set an `API_KEY`, the server will generate a **temporary secure key** on startup and print it to the console.
+
+**Usage:**
+
+Include the key in the `Authorization` header of your requests:
+
+```bash
+Authorization: Bearer <YOUR_API_KEY>
+```
 
 ### Health Check
 
