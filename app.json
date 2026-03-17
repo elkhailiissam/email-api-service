@@ -1,0 +1,57 @@
+{
+  "name": "email-api-service",
+  "description": "A lightweight email microservice for sending, receiving, and managing emails via REST API",
+  "keywords": ["node", "express", "email", "api", "smtp", "imap"],
+  "env": {
+    "EMAIL_HOST": {
+      "description": "SMTP host for sending emails",
+      "required": true
+    },
+    "EMAIL_PORT": {
+      "description": "SMTP port (usually 587 or 465)",
+      "required": true
+    },
+    "EMAIL_USER": {
+      "description": "SMTP username / email address",
+      "required": true
+    },
+    "EMAIL_PASSWORD": {
+      "description": "SMTP password",
+      "required": true
+    },
+    "EMAIL_SECURE": {
+      "description": "Use secure SMTP connection (true/false)",
+      "value": "false"
+    },
+    "EMAIL_IMAP_PORT": {
+      "description": "IMAP port for fetching emails",
+      "value": "993"
+    },
+    "EMAIL_IMAP_SECURE": {
+      "description": "Use secure IMAP connection (true/false)",
+      "value": "true"
+    },
+    "ADMIN_EMAIL": {
+      "description": "Admin email for notifications",
+      "required": true
+    },
+    "API_KEY": {
+      "description": "Secret API key for authentication",
+      "generator": "secret"
+    },
+    "COMPANY_NAME": {
+      "description": "Company name used in email templates",
+      "value": "Your Company"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  },
+  "buildpacks": [
+    { "url": "heroku/nodejs" }
+  ],
+  "stack": "heroku-22"
+}
